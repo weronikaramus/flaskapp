@@ -1,4 +1,4 @@
-#!/Users/weronika/quiz/bin/python
+#!/Users/weronika/flaskintr/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
