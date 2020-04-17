@@ -32,8 +32,15 @@ DANE = [{
 ]
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    
+    # return 'Cześć, tu Python!'
+    return render_template('index.html', pytania=DANE)
+
+@app.route('/wyniki', methods=['GET', 'POST'])
+def wyniki():
 
     if request.method == 'POST':
         punkty = 0
@@ -43,12 +50,11 @@ def index():
             if odp == DANE[int(pnr)]['odpok']:
                 punkty += 1
 
-        flash('Liczba poprawnych odpowiedzi, to: {0}'.format(punkty))
-        return redirect(url_for('index'))
+        flash('Liczba poprawnych odpowiedzi: {0}'.format(punkty))
+        return redirect(url_for('wyniki'))
 
     # return 'Cześć, tu Python!'
-    return render_template('index.html', pytania=DANE)
-
+    return render_template('wyniki.html', pytania=DANE)
 
 if __name__ == '__main__':
     app.run(debug=True)

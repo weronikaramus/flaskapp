@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Wynik Quizu Python</title>
+  </head>
+<body>
+  <h1>Wynik Quizu Python</h1>
+</body>
+</html>
+<!-- wyświetlamy komunikaty z funkcji flash -->
+<p>
+	{% for message in get_flashed_messages() %}
+	  {{ message }}
+	{% endfor %}
+</p>
+<!-- formularz z quizem -->
+<form method="POST">
+	<!--przgledądamy treść pytania -->
+	{% for p in pytania %}
+		<p>
+		<!-- zapamiętujemy numer pytania licząc od zera -->
+		{% set pnr = loop.index0 %}
+		<!-- przeglądamy odpowiedzi dla danego pytania -->
+		{% for o in p.odpowiedzi %}
+			{% endfor %}
+		</p>
+	{% endfor %}
+
+
+    <!-- przycisk powrotu do formularza -->
+    <a href="{{ url_for('index') }}"><button type = 'button' >Powrót</button></a>
+</form>
